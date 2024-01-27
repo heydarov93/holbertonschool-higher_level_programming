@@ -13,4 +13,5 @@ def print_args(argv):
         print("{}: {}".format(i, argv[i]))
 
 
-print_args(argv)
+if __name__ == "__main__":
+    print_args(argv)
