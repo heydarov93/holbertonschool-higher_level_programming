@@ -1,36 +1,52 @@
-The ``say_my_name`` module
-======================
+The ``3-say_my_name`` module
+============================
 
 Using ``say_my_name``
--------------------
+---------------------
 
-Write a function that prints My name is <first name> <last name>
+Import function from module:
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	
+Test two string type:
+	>>> say_my_name("John", "Smith")
+	My name is John Smith
 
-    Prototype: def say_my_name(first_name, last_name=""):
-    first_name and last_name must be strings otherwise, raise a TypeError exception with the message first_name must be a string or last_name must be a string
-    You are not allowed to import any module
+Test integer and string type:
+	>>> say_my_name(5, "Smith")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
 
->>> say_my_name = __import__('3-say_my_name').say_my_name
->>> say_my_name("Norman", "Isaza")
-My name is Norman Isaza
->>> say_my_name(None, "Isaza")
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "<stdin>", line 4, in say_my_name
-TypeError: first_name must be a string or last_name must be a string
->>> say_my_name("Norman", None)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "<stdin>", line 4, in say_my_name
-TypeError: first_name must be a string or last_name must be a string
->>> say_my_name("Norman", 5)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "<stdin>", line 4, in say_my_name
-TypeError: first_name must be a string or last_name must be a string
->>> say_my_name(5, "Isaza")
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "<stdin>", line 4, in say_my_name
-TypeError: first_name must be a string or last_name must be a string
->>>
+Test string and integer type:
+	>>> say_my_name("John", 5) 
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+Test lastname empty:
+	>>> say_my_name("hello", "")
+	My name is hello 
+
+Test both names empty:
+	>>> say_my_name("", "")
+	My name is  
+
+Test just spaces:
+	>>> say_my_name("   ", "   ")
+	My name is        
+
+Test empty firstname:
+	>>> say_my_name("", "hello")
+	My name is  hello
+
+Test not str arg1 arg2:
+    >>> say_my_name(91, 98)
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+Missing 2 args:
+    >>> say_my_name()
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
