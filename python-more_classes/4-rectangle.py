@@ -17,7 +17,7 @@ class Rectangle:
             return rect
 
         for i in range(self.height):
-            rect += "#" * self.width + "\n"
+            rect += "#" * self.width + ("\n" if i != self.height - 1 else "")
         return rect
 
     def __repr__(self):
