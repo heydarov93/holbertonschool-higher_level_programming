@@ -11,6 +11,9 @@ class Rectangle:
         self.height = height
 
     def __str__(self):
+        if self.width == 0:
+            return ""
+
         for i in range(self.height):
             print("#" * self.width, end="" if i == self.height - 1 else "\n")
         return ""
