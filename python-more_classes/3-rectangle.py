@@ -11,12 +11,14 @@ class Rectangle:
         self.height = height
 
     def __str__(self):
-        if self.width == 0:
-            return ""
+        """returns presentation of rectangle using # chars"""
+        rect = ""
+        if 0 in {self.width, self.height}:
+            return rect
 
         for i in range(self.height):
-            print("#" * self.width, end="" if i == self.height - 1 else "\n")
-        return ""
+            rect += "#" * self.width + "\n"
+        return rect
 
     @property
     def width(self):
