@@ -3,4 +3,5 @@
 
 
 class BaseGeometry:
+    """BaseGeometry class document string"""
     pass
