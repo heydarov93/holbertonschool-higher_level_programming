@@ -21,10 +21,10 @@ def pascal_triangle(n):
         for num in range(length):
             try:
                 if num == 0:
-                    tmp.append(arr[idx][num] + 0)
+                    tmp.append(1)
 
                 if num == length - 1:
-                    tmp.append(arr[idx][num] + 0)
+                    tmp.append(1)
 
                 tmp.append(arr[idx][num] + arr[idx][num + 1])
             except IndexError:
