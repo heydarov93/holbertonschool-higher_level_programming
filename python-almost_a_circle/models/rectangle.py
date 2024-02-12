@@ -27,7 +27,7 @@ class Rectangle(Base):
         super().__init__(id)
 
     def __getattr__(self, name):
-        return self.__dict__[f"__{name}"]
+        return self.__dict__[f"{name}"]
 
     def __setattr__(self, name, value):
-        self.__dict__[f"__{name}"] = value
+        self.__dict__[f"{name}"] = value
