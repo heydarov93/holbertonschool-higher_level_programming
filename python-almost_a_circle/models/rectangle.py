@@ -40,7 +40,7 @@ class Rectangle(Base):
         """
         print("\n" * self.y, end="")
         for i in range(self.height):
-            print(" " * self.x, "#" * self.width)
+            print(" " * self.x, "#" * self.width, sep="")
 
     def area(self):
         """
