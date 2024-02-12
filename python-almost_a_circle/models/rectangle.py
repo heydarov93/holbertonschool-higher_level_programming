@@ -38,8 +38,9 @@ class Rectangle(Base):
         Method to print in stdout the Rectangle instance
         with the character #
         """
+        print("\n" * self.y, end="")
         for i in range(self.height):
-            print("#" * self.width)
+            print(" " * self.x, "#" * self.width)
 
     def area(self):
         """
