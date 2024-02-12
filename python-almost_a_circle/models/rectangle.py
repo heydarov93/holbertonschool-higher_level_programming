@@ -26,6 +26,9 @@ class Rectangle(Base):
 
         super().__init__(id)
 
+    def area(self):
+        return self.width * self.height
+
     @staticmethod
     def check_type(field, value):
         if type(value) is not int:
