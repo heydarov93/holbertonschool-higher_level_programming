@@ -2,7 +2,7 @@
 """This is a 'rectangle' module"""
 
 
-from models.base import Base
+from .base import Base
 
 
 class Rectangle(Base):
@@ -26,8 +26,34 @@ class Rectangle(Base):
 
         super().__init__(id)
 
-    def __getattr__(self, name):
-        return self.__dict__[f"{name}"]
+    @property
+    def width(self):
+        return self.__width
 
-    def __setattr__(self, name, value):
-        self.__dict__[f"{name}"] = value
+    @property
+    def height(self):
+        return self.__height
+
+    @property
+    def x(self):
+        return self.__x
+
+    @property
+    def y(self):
+        return self.__y
+
+    @x.setter
+    def x(self, value):
+        self.__x = value
+
+    @y.setter
+    def y(self, value):
+        self.__y = value
+
+    @width.setter
+    def width(self, value):
+        self.__width = value
+
+    @height.setter
+    def height(self, value):
+        self.__height = value
