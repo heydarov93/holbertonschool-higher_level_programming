@@ -24,6 +24,14 @@ class Rectangle(Base):
 
         super().__init__(id)
 
+    def display(self):
+        for i in range(self.height):
+            """
+            Method to print in stdout the Rectangle instance
+            with the character #
+            """
+            print("#" * self.width)
+
     def area(self):
         """
         Method to calculate and return the area of the rectangle.
