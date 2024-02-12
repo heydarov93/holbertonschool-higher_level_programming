@@ -25,11 +25,11 @@ class Rectangle(Base):
         super().__init__(id)
 
     def display(self):
+        """
+        Method to print in stdout the Rectangle instance
+        with the character #
+        """
         for i in range(self.height):
-            """
-            Method to print in stdout the Rectangle instance
-            with the character #
-            """
             print("#" * self.width)
 
     def area(self):
