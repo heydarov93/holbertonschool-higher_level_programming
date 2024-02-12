@@ -26,6 +26,21 @@ class Rectangle(Base):
 
         super().__init__(id)
 
+    @staticmethod
+    def check_type(field, value):
+        if type(value) is not int:
+            raise TypeError(f"{field} must be an integer")
+
+    @staticmethod
+    def check_size_value(field, value):
+        if value <= 0:
+            raise ValueError(f"{field} must be > 0")
+
+    @staticmethod
+    def check_coordnte_value(field, value):
+        if value < 0:
+            raise ValueError(f"{field} must be >= 0")
+
     @property
     def width(self):
         return self.__width
@@ -44,16 +59,24 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
+        self.check_type("x", value)
+        self.check_coordnte_value("x", value)
         self.__x = value
 
     @y.setter
     def y(self, value):
+        self.check_type("y", value)
+        self.check_coordnte_value("y", value)
         self.__y = value
 
     @width.setter
     def width(self, value):
+        self.check_type("width", value)
+        self.check_size_value("width", value)
         self.__width = value
 
     @height.setter
     def height(self, value):
+        self.check_type("height", value)
+        self.check_size_value("height", value)
         self.__height = value
