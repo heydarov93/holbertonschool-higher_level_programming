@@ -24,6 +24,15 @@ class Rectangle(Base):
 
         super().__init__(id)
 
+    def __str__(self):
+        """
+        Method that returns:
+        [Rectangle] (<id>) <x>/<y> - <width>/<height>
+        """
+        classname = self.__class__.__name__
+        return f"[{classname}] ({self.id})"\
+               f" {self.x}/{self.y} - {self.width}/{self.height}"
+
     def display(self):
         """
         Method to print in stdout the Rectangle instance
