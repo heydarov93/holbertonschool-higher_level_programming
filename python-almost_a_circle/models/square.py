@@ -24,6 +24,23 @@ class Square(Rectangle):
         return f"[{classname}] ({self.id})"\
                f" {self.x}/{self.y} - {self.width}"
 
+    def update(self, *args, **kwargs):
+        """
+        Method that updates class Square using *args or **kwargs
+        """
+        # add value for height into args
+        if len(args) > 1:
+            args = args[:2] + (args[1],) + args[2:]
+        else:
+            # if size exists give its value to width and height
+            if "size" in kwargs:
+                kwargs.update({"width": kwargs["size"],
+                               "height": kwargs["size"]})
+                # remove size from kwargs
+                del kwargs["size"]
+
+        super().update(*args, **kwargs)
+
     @property
     def size(self):
         """
