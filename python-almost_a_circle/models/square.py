@@ -24,6 +24,17 @@ class Square(Rectangle):
         return f"[{classname}] ({self.id})"\
                f" {self.x}/{self.y} - {self.width}"
 
+    def to_dictionary(self):
+        """
+        Method that returns the dictionary representation
+        of a Square
+        """
+        dictionary = super().to_dictionary()
+        dictionary["size"] = dictionary["width"]
+        dictionary.pop("width")
+        dictionary.pop("height")
+        return dictionary
+
     def update(self, *args, **kwargs):
         """
         Method that updates class Square using *args or **kwargs
