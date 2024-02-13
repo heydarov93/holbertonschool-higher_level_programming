@@ -33,6 +33,13 @@ class Rectangle(Base):
         return f"[{classname}] ({self.id})"\
                f" {self.x}/{self.y} - {self.width}/{self.height}"
 
+    def to_dictionary(self):
+        """
+        Method that returns the dictionary representation of a Rectangle
+        """
+        return {"id": self.id, "width": self.width, "height": self.height,
+                "x": self.x, "y": self.y}
+
     def update(self, *args, **kwargs):
         """
         Method that assigns an argument to each attribute
