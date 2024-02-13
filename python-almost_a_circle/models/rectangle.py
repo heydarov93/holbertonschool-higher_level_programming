@@ -33,18 +33,14 @@ class Rectangle(Base):
         return f"[{classname}] ({self.id})"\
                f" {self.x}/{self.y} - {self.width}/{self.height}"
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Method that assigns an argument to each attribute
         """
-        try:
-            self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-            self.y = args[4]
-        except IndexError:
-            pass
+        if len(args) > 0:
+            self.__update_fields_from_arr_dict(args)
+        else:
+            self.__update_fields_from_arr_dict(kwargs)
 
     def display(self):
         """
@@ -87,6 +83,21 @@ class Rectangle(Base):
         """
         if value < 0:
             raise ValueError(f"{field} must be >= 0")
+
+    def __update_fields_from_arr_dict(self, collection):
+        atts = {"id": "self.id", "width": "self.width",
+                "height": "self.height", "x": "self.x", "y": "self.y"}
+
+        if type(collection) is tuple:
+            dict_values = list(atts.values())
+            cltn_length = len(collection)
+
+            for i in range(cltn_length):
+                exec(f"{dict_values[i]}={collection[i]}")
+
+        elif type(collection) is dict:
+            for k, v in collection.items():
+                exec(f"{atts[k]}={v}")
 
     @property
     def width(self):
