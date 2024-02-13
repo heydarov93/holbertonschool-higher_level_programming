@@ -21,6 +21,7 @@ class Base:
             __class__.__nb_objects += 1
             self.id = __class__.__nb_objects
 
+    @staticmethod
     def to_json_string(list_dictionaries):
         """
         Static method that returns the JSON string
