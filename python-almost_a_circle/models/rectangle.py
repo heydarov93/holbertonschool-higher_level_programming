@@ -85,6 +85,10 @@ class Rectangle(Base):
             raise ValueError(f"{field} must be >= 0")
 
     def __update_fields_from_arr_dict(self, collection):
+        """
+        Method that dynamically updates fields of instance
+        using collection (tuple, dict)
+        """
         atts = {"id": "self.id", "width": "self.width",
                 "height": "self.height", "x": "self.x", "y": "self.y"}
 
