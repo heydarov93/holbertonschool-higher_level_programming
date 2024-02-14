@@ -38,6 +38,16 @@ class Base:
         with open(filename, "w", encoding="utf-8") as afile:
             afile.write(json_str)
 
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Class method that returns an instance with all attributes
+        already set
+        """
+        dummy = cls(1, 1, 1)
+        dummy.update(**dictionary)
+        return dummy
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """
