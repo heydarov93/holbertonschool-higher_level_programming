@@ -44,7 +44,7 @@ class Base:
         Class method that returns an instance with all attributes
         already set
         """
-        dummy = cls(1, 1, 1)
+        dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
 
