@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Test for square model"""
+
+
 import os
 import unittest
 from models.square import Square
